@@ -1,0 +1,14 @@
+# Node
+node_modules/
+.env
+/media/
+dist/
+build/
+
+# Logs
+logs
+*.log
+
+# IDE
+.vscode/
+.idea/
