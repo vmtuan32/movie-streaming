@@ -69,6 +69,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - run: |
           cd /home/hieubv13/movie/movie-streaming
           git pull origin develop
