@@ -73,9 +73,9 @@ jobs:
       - name: Deploy to UAT via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.UAT_HOST }}
-          username: ${{ secrets.UAT_USER }}
-          key: ${{ secrets.UAT_SSH_KEY }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             cd /path/to/app
             git pull origin develop
