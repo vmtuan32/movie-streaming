@@ -68,10 +68,13 @@ jobs:
   deploy-uat:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
-      - run: |
+      - name: Pull and deploy
+        run: |
           cd /home/hieubv13/movie/movie-streaming
-          git pull origin develop
-          docker compose down
-          docker compose up -d --build
+          git pull --no-rebase origin develop
+          sudo docker compose down
+          sudo docker compose up -d --build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 
