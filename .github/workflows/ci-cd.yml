@@ -66,18 +66,11 @@ jobs:
         run: npm test
 
   deploy-uat:
-    needs: [build-frontend, build-backend]
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    runs-on: self-hosted
     steps:
-      - name: Deploy to UAT via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.UAT_HOST }}
-          username: ${{ secrets.UAT_USER }}
-          key: ${{ secrets.UAT_SSH_KEY }}
-          script: |
-            cd /path/to/app
-            git pull origin develop
-            docker compose down
-            docker compose up -d --build
+      - uses: actions/checkout@v4
+      - run: |
+          cd /path/to/app
+          git pull origin develop
+          docker compose down
+          docker compose up -d --build
