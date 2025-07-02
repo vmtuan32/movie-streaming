@@ -7,7 +7,7 @@ import { VideoModule } from './video/video.module';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'media'),
-      serveRoot: '/media', // URL truy cập: /media/filename.mp4
+      serveRoot: '/media', // URL truy cập : /media/filename.mp4
     }),
     VideoModule,
   ],
