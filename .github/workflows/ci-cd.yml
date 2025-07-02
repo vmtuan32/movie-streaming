@@ -71,7 +71,7 @@ jobs:
       - name: Pull and deploy
         run: |
           cd /home/hieubv13/movie/movie-streaming
-          git pull https://vmtuan32:${GH_TOKEN}@github.com/vmtuan32/movie-streaming.git
+          git pull --no-rebase origin develop
           docker compose down
           docker compose up -d --build
         env:
