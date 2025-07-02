@@ -70,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          cd /path/to/app
+          cd /home/hieubv13/movie/movie-streaming
           git pull origin develop
           docker compose down
           docker compose up -d --build
