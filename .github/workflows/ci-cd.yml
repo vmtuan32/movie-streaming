@@ -68,12 +68,12 @@ jobs:
   deploy-uat:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-      - run: |
+      - name: Pull and deploy
+        run: |
           cd /home/hieubv13/movie/movie-streaming
+          git remote set-url origin https://vmtuan32:${{ secrets.GH_TOKEN }}@github.com/vmtuan32/movie-streaming.git
           git pull origin develop
           docker compose down
           docker compose up -d --build
-
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
