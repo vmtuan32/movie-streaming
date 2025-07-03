@@ -41,7 +41,7 @@ function App() {
       <form onSubmit={handleUpload}>
         <input type="file" accept="video/*" onChange={handleFileChange} />
         <button type="submit" disabled={uploading}>
-          {uploading ? "Đang upload..." : "Upload Video"}
+          {uploading ? "Đang upload...." : "Upload Video"}
         </button>
       </form>
       <h2>Danh sách video đã upload</h2>
